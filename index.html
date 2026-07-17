@@ -277,11 +277,11 @@ footer .brand{font-size:1rem;}
       <div class="reveal"><p class="kicker">About</p><h2>Engineering that <em>respects the data.</em></h2>
         <div class="about-body">
           <p>I studied <strong>Industrial &amp; Production Engineering at SGSITS, Indore</strong> &mdash; a discipline built around systems, flow, and eliminating bottlenecks. That way of thinking is exactly what I carry into data engineering: treat a pipeline like a production line, and design it so nothing jams downstream.</p>
-          <p>Over <strong>eight years</strong> I've grown from analytics into a <strong>Senior Analytical Engineer</strong> role, working across backend integration services, dbt transformation pipelines, enterprise CRM migrations, and analytics reporting. I've shipped custom API services to Google Cloud, migrated millions of records into Salesforce, and built dashboards that leadership checks every morning.</p>
+          <p>Over <strong>eight years</strong> I've grown from BI reporting into a <strong>Senior Analytical Engineer</strong> role, designing scalable cloud data warehouses on <strong>Snowflake</strong>, building trusted transformation layers in <strong>dbt</strong>, and shipping backend integration services on <strong>Google Cloud</strong>. I've built fact-and-dimension models for enterprise reporting, migrated millions of records into Salesforce, and delivered dashboards that leadership checks every morning.</p>
           <p>I explain complex things in plain language, verify against real data before I ship, and I'm the person who reads the schema twice so the pipeline doesn't break at 2am. On the side, I build and run <strong>dataanalystinterview.com</strong>, a prep platform for aspiring analysts across India.</p>
         </div>
         <div class="pillbox">
-          <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">dbt</span><span class="chip">FastAPI</span><span class="chip">PostgreSQL</span><span class="chip">BigQuery</span><span class="chip">Snowflake</span><span class="chip">Salesforce</span><span class="chip">SSIS</span><span class="chip">KingswaySoft</span><span class="chip">Fivetran</span><span class="chip">GA4</span><span class="chip">GTM</span><span class="chip">Looker Studio</span><span class="chip">Power BI</span><span class="chip">Google Cloud</span><span class="chip">CI/CD</span>
+          <span class="chip">Python</span><span class="chip">SQL</span><span class="chip">dbt</span><span class="chip">Jinja</span><span class="chip">Snowflake</span><span class="chip">BigQuery</span><span class="chip">PostgreSQL &amp; MySQL</span><span class="chip">Google Cloud Platform</span><span class="chip">Fivetran</span><span class="chip">Salesforce</span><span class="chip">SSIS</span><span class="chip">KingswaySoft</span><span class="chip">Looker &amp; Looker Studio</span><span class="chip">Tableau</span><span class="chip">Power BI</span><span class="chip">FastAPI &amp; REST APIs</span><span class="chip">Docker</span><span class="chip">Git &amp; GitHub Actions</span><span class="chip">CI/CD</span>
         </div>
       </div>
       <div class="reveal"><div class="about-facts">
@@ -290,7 +290,8 @@ footer .brand{font-size:1rem;}
         <div class="fact"><span class="fact-k">Core stack</span><span class="fact-v">dbt &middot; FastAPI &middot; SQL<small>Python-first</small></span></div>
         <div class="fact"><span class="fact-k">Warehouses</span><span class="fact-v">PostgreSQL &middot; BigQuery<small>Snowflake &middot; Cloud SQL</small></span></div>
         <div class="fact"><span class="fact-k">Also builds</span><span class="fact-v">dataanalystinterview.com<small>Analyst prep platform</small></span></div>
-        <div class="fact"><span class="fact-k">Based in</span><span class="fact-v">Indore, MP<small>India &middot; UTC+5:30</small></span></div>
+        <div class="fact"><span class="fact-k">Certifications</span><span class="fact-v">Snowflake SnowPro Core<small>dbt Fundamentals &middot; GCP Professional Data Engineer</small></span></div>
+        <div class="fact"><span class="fact-k">Based in</span><span class="fact-v">Gurugram, India<small>UTC+5:30</small></span></div>
       </div></div>
     </div>
   </div></section>
@@ -404,12 +405,117 @@ footer .brand{font-size:1rem;}
     </div>
 
     <!-- MINI PROJECTS -->
-    <div class="reveal"><h4 style="color:var(--pink-700);font-family:var(--tight);font-size:.9rem;letter-spacing:.08em;text-transform:uppercase;margin:2.5rem 0 1rem;">More projects</h4></div>
-    <div class="mini-grid">
-      <div class="mini reveal"><h3>dbt Pipeline &mdash; Staging to Mart</h3><p>Propagated a new tracking field across staging &rarr; intermediate &rarr; mart layers over a HubSpot + Fivetran source, with full YAML docs and a senior-reviewed PR. Lesson kept: never guess example values &mdash; verify against real data.</p><div class="chips"><span class="chip">dbt</span><span class="chip">Fivetran</span><span class="chip">Git</span></div></div>
-      <div class="mini reveal"><h3>Marketing Analytics Pipeline</h3><p>Like-for-like ROAS, conversion-rate, and engaged-session reporting across 100+ locations using GA4, call tracking, and BigQuery &mdash; delivered with Excel workbooks and a documented methodology for handover.</p><div class="chips"><span class="chip">BigQuery</span><span class="chip">GA4</span><span class="chip">GTM</span></div></div>
-      <div class="mini reveal"><h3>Snowflake &rarr; Looker Studio</h3><p>Real-time operational dashboards connecting a Snowflake warehouse to Looker Studio, plus a Power BI migration workstream for the same reporting suite.</p><div class="chips"><span class="chip">Snowflake</span><span class="chip">Looker Studio</span><span class="chip">Power BI</span></div></div>
-      <div class="mini reveal"><h3>dataanalystinterview.com</h3><p>Founded and run an interview-prep platform for the Indian analyst market &mdash; scaling SQL, Python, and career content with an n8n + WordPress automation workflow.</p><div class="chips"><span class="chip">Python</span><span class="chip">n8n</span><span class="chip">WordPress</span></div></div>
+    <!-- CASE 4: dbt pipeline -->
+    <div class="case reveal">
+      <div class="case-head"><div>
+        <span class="case-tag">04 &middot; DBT &middot; DATA MODELING</span>
+        <h3>dbt Pipeline &mdash; Staging to Mart</h3>
+        <div class="case-sub">Propagating a new tracking field safely through a multi-layer warehouse</div>
+      </div></div>
+      <div class="case-body">
+        <p>A product team needed a new tracking attribute to flow all the way from raw source data into the reporting layer, without breaking any downstream model. I designed the change through dbt's layered architecture rather than patching the mart directly &mdash; so the field stays traceable and testable at every step.</p>
+
+        <h4>Layered flow</h4>
+        <div class="flow">
+          <div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2 3 7l9 5 9-5-9-5Z"/><path d="M3 12l9 5 9-5M3 17l9 5 9-5"/></svg></div><div class="fs-t">Source (Fivetran)</div><div class="fs-d">Raw HubSpot tables land in the warehouse</div></div>
+          <div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="4" y="4" width="16" height="16" rx="2"/><path d="M4 10h16"/></svg></div><div class="fs-t">Staging models</div><div class="fs-d">1:1 cleaned views, field renamed &amp; typed</div></div>
+          <div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M4.9 4.9l2.8 2.8M16.3 16.3l2.8 2.8M2 12h4M18 12h4M4.9 19.1l2.8-2.8M16.3 7.7l2.8-2.8"/></svg></div><div class="fs-t">Intermediate</div><div class="fs-d">Field joined &amp; propagated with business logic</div></div>
+          <div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/></svg></div><div class="fs-t">Mart</div><div class="fs-d">Field surfaced in the final reporting table</div></div>
+        </div>
+
+        <h4>How it was built</h4>
+        <p>The new field was added at the <strong>staging</strong> layer first, verified against real production rows (not assumed sample values), then threaded through the <strong>intermediate</strong> layer where the core business joins live, and finally exposed in the <strong>mart</strong> that the dashboard reads. Each layer got its own YAML documentation and dbt tests, and the change went through a <strong>senior-reviewed pull request</strong> before merging to the shared branch.</p>
+        <p><strong>Key lesson carried forward:</strong> never guess example values in YAML descriptions or tests &mdash; always pull a real row from the warehouse to confirm the field behaves as expected before documenting it.</p>
+
+        <div class="metrics">
+          <div class="metric"><div class="mv">3</div><div class="ml">Model layers touched</div></div>
+          <div class="metric"><div class="mv">100%</div><div class="ml">Field lineage documented</div></div>
+          <div class="metric"><div class="mv">PR</div><div class="ml">Reviewed &amp; merged</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE 5: Marketing analytics -->
+    <div class="case reveal">
+      <div class="case-head"><div>
+        <span class="case-tag">05 &middot; MARKETING ANALYTICS</span>
+        <h3>Multi-Location Marketing Analytics Pipeline</h3>
+        <div class="case-sub">Like-for-like ROAS, conversion rate, and engagement reporting at scale</div>
+      </div></div>
+      <div class="case-body">
+        <p>Leadership needed to compare marketing performance across <strong>100+ locations</strong> fairly &mdash; but each location had different session volumes, call-tracking setups, and campaign spends. The challenge wasn't just pulling data; it was building one <strong>consistent methodology</strong> so every location could be compared like-for-like.</p>
+
+        <h4>Data flow</h4>
+        <div class="flow">
+          <div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="9"/><path d="M12 3a15 15 0 0 0 0 18M12 3a15 15 0 0 1 0 18M3 12h18"/></svg></div><div class="fs-t">GA4 + GTM</div><div class="fs-d">Sessions &amp; conversion events per location</div></div>
+          <div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6 19.8 19.8 0 0 1-3-8.6A2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7"/></svg></div><div class="fs-t">Call tracking</div><div class="fs-d">Phone-lead attribution layered in</div></div>
+          <div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6c0-1.5 3.6-2.5 8-2.5s8 1 8 2.5-3.6 2.5-8 2.5-8-1-8-2.5Z"/><path d="M4 6v12c0 1.5 3.6 2.5 8 2.5s8-1 8-2.5V6"/></svg></div><div class="fs-t">BigQuery</div><div class="fs-d">Unified, deduplicated per-location tables</div></div>
+          <div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 13v4M12 9v8M16 6v11"/></svg></div><div class="fs-t">Excel workbook</div><div class="fs-d">ROAS / CR / Engaged Sessions, delivered</div></div>
+        </div>
+
+        <h4>The methodology problem</h4>
+        <p>The trickiest part was defining <strong>Conversion Rate</strong> consistently: calls, sales, website enquiry forms, and email leads all needed to be counted &mdash; and double-counted paths excluded &mdash; the same way, everywhere. I documented the exact formula and every exclusion rule so any location's number could be trusted at a glance, then handed the full methodology over in writing for the reporting team to maintain independently.</p>
+
+        <div class="metrics">
+          <div class="metric"><div class="mv">100+</div><div class="ml">Locations compared</div></div>
+          <div class="metric"><div class="mv">3</div><div class="ml">Metrics standardized</div></div>
+          <div class="metric"><div class="mv">1</div><div class="ml">Documented methodology</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE 6: Snowflake -> Looker -->
+    <div class="case reveal">
+      <div class="case-head"><div>
+        <span class="case-tag">06 &middot; WAREHOUSE &middot; BI MIGRATION</span>
+        <h3>Snowflake &rarr; Looker Studio Reporting, + Power BI Migration</h3>
+        <div class="case-sub">Real-time operational dashboards on a modern warehouse</div>
+      </div></div>
+      <div class="case-body">
+        <p>Operational teams needed dashboards that updated in near real time, without waiting on a nightly batch job. I connected <strong>Snowflake</strong> directly to <strong>Looker Studio</strong> for live KPI visibility, then separately led a workstream migrating an existing reporting suite off legacy tooling and onto <strong>Power BI</strong> &mdash; keeping both platforms in sync with the same underlying warehouse models.</p>
+
+        <h4>Architecture</h4>
+        <div class="flow">
+          <div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6c0-1.5 3.6-2.5 8-2.5s8 1 8 2.5-3.6 2.5-8 2.5-8-1-8-2.5Z"/><path d="M4 6v12c0 1.5 3.6 2.5 8 2.5s8-1 8-2.5V6"/></svg></div><div class="fs-t">Snowflake warehouse</div><div class="fs-d">Modeled operational KPI tables</div></div>
+          <div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 12a9 9 0 0 1 18 0M3 12a9 9 0 0 0 18 0M3 12h18"/></svg></div><div class="fs-t">Live connection</div><div class="fs-d">Direct query, no batch delay</div></div>
+          <div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M8 13v4M12 9v8M16 6v11"/></svg></div><div class="fs-t">Looker Studio</div><div class="fs-d">Real-time operational dashboards</div></div>
+          <div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 3v18h18"/><rect x="7" y="11" width="3" height="6"/><rect x="12" y="7" width="3" height="10"/></svg></div><div class="fs-t">Power BI</div><div class="fs-d">Migrated reporting suite, same models</div></div>
+        </div>
+
+        <p>The Power BI migration was designed so it didn't disrupt existing report consumers &mdash; the underlying Snowflake models stayed the single source of truth, with both BI tools pointed at the same governed layer instead of duplicating logic in each front end.</p>
+
+        <div class="metrics">
+          <div class="metric"><div class="mv">Live</div><div class="ml">No batch delay</div></div>
+          <div class="metric"><div class="mv">2</div><div class="ml">BI tools, 1 source of truth</div></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CASE 7: dataanalystinterview.com -->
+    <div class="case reveal">
+      <div class="case-head"><div>
+        <span class="case-tag">07 &middot; FOUNDER PROJECT</span>
+        <h3>dataanalystinterview.com</h3>
+        <div class="case-sub">An interview-prep platform for the Indian analyst market</div>
+      </div></div>
+      <div class="case-body">
+        <p>Founded and run a content platform helping aspiring data analysts across India prepare for interviews &mdash; covering SQL, Python, and career guidance at scale. Rather than writing every article by hand, I built an automated content pipeline so the site could grow consistently.</p>
+
+        <h4>Content pipeline</h4>
+        <div class="flow">
+          <div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div><div class="fs-t">n8n workflow</div><div class="fs-d">Automates topic research &amp; drafting</div></div>
+          <div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M4 6c0-1.5 3.6-2.5 8-2.5s8 1 8 2.5-3.6 2.5-8 2.5-8-1-8-2.5Z"/><path d="M4 6v12c0 1.5 3.6 2.5 8 2.5s8-1 8-2.5V6"/></svg></div><div class="fs-t">Python scripts</div><div class="fs-d">Formatting, SEO checks, scheduling</div></div>
+          <div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="4" rx="1"/><rect x="3" y="10" width="18" height="4" rx="1"/><rect x="3" y="16" width="18" height="4" rx="1"/></svg></div><div class="fs-t">WordPress</div><div class="fs-d">Published content, structured for SEO</div></div>
+          <div class="flow-step"><div class="flow-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></div><div class="fs-t">Readers</div><div class="fs-d">Aspiring analysts across India</div></div>
+        </div>
+
+        <p>The platform covers SQL fundamentals, Python for analytics, and career guides tailored to the Indian job market, with content scaled through the automation workflow rather than manual publishing &mdash; freeing time to focus on quality and monetization strategy (currently working toward Google AdSense approval).</p>
+
+        <div class="metrics">
+          <div class="metric"><div class="mv">n8n</div><div class="ml">+ WordPress automation</div></div>
+          <div class="metric"><div class="mv">SQL/Python</div><div class="ml">Core content pillars</div></div>
+        </div>
+      </div>
     </div>
   </div></section>
 </div>
@@ -421,33 +527,47 @@ footer .brand{font-size:1rem;}
     <p class="section-lead">Roles across product data teams, AI-driven companies, and agency analytics &mdash; always closer to the data.</p></div>
     <div class="tl">
       <div class="tl-item reveal">
-        <div class="tl-date">2023 &mdash; Present</div>
+        <div class="tl-date">Oct 2025 &mdash; June 2026</div>
         <div class="tl-role">Senior Analytical Engineer</div>
-        <div class="tl-org">Novatr <span>&middot; Y Combinator-backed</span></div>
+        <div class="tl-org">FuseMachines <span>&middot; Remote</span></div>
         <ul class="tl-list">
-          <li>Own end-to-end analytical pipelines &mdash; from source integration to modeled marts to reporting</li>
-          <li>Built a custom FastAPI financial-data service with OAuth 2.0, encrypted tokens, and Cloud Run CI/CD</li>
-          <li>dbt modeling across staging, intermediate, and mart layers for member-facing products</li>
+          <li>Designed and implemented scalable Snowflake data warehouse solutions for enterprise reporting and analytics</li>
+          <li>Built physical data models &mdash; fact and dimension tables &mdash; and analytics-ready data marts using star schema</li>
+          <li>Developed modular, incremental dbt models to reduce transformation complexity and warehouse compute costs</li>
+          <li>Partnered with data architects and cross-functional stakeholders to standardize data modeling practices enterprise-wide</li>
         </ul>
       </div>
       <div class="tl-item reveal">
-        <div class="tl-date">2021 &mdash; 2023</div>
-        <div class="tl-role">Data Engineer</div>
-        <div class="tl-org">Fusemachines</div>
+        <div class="tl-date">Dec 2023 &mdash; Oct 2025</div>
+        <div class="tl-role">Senior BI Engineer</div>
+        <div class="tl-org">BlackPiano <span>&middot; Gurugram</span></div>
         <ul class="tl-list">
-          <li>Enterprise CRM migrations onto Salesforce &mdash; extraction, mapping, and SSIS/KingswaySoft ETL at multi-million-record scale</li>
-          <li>CPQ &rarr; Revenue Cloud data migration and quote-to-revenue continuity</li>
-          <li>Warehouse and dashboard work across Snowflake, Looker Studio, and Power BI</li>
+          <li>Designed Snowflake schemas, tables, views, and materialized views for enterprise-scale analytical workloads</li>
+          <li>Built reusable dbt macros, snapshots, and incremental models to standardize transformation processes</li>
+          <li>Optimized warehouse utilization, SQL performance, and cost across finance, sales, marketing, and product analytics</li>
+          <li>Delivered dimensional models supporting executive dashboards, KPI reporting, and operational analytics</li>
         </ul>
       </div>
       <div class="tl-item reveal">
-        <div class="tl-date">2018 &mdash; 2021</div>
-        <div class="tl-role">Analytics Engineer</div>
-        <div class="tl-org">Black Piano Technologies</div>
+        <div class="tl-date">Mar 2023 &mdash; Feb 2024</div>
+        <div class="tl-role">Senior Product &amp; BI Analyst</div>
+        <div class="tl-org">Novatr <span>&middot; Gurugram</span></div>
         <ul class="tl-list">
-          <li>Built GA4 / GTM tracking, consent management, and marketing analytics pipelines for multiple accounts</li>
-          <li>BigQuery pipelines and Looker Studio reporting with like-for-like methodology</li>
-          <li>Grew from analytics reporting into full analytical engineering</li>
+          <li>Implemented Row-Level Security (RLS) for secure, role-based data access across user groups</li>
+          <li>Automated end-to-end ELT workflows, improving reliability and cutting operational effort</li>
+          <li>Maintained metadata documentation and data lineage to support governance and audit requirements</li>
+          <li>Implemented Slowly Changing Dimensions (SCD Type 1 &amp; 2) for historical data tracking</li>
+        </ul>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-date">Jan 2019 &mdash; Feb 2023</div>
+        <div class="tl-role">Data &amp; BI Engineer</div>
+        <div class="tl-org">Early career <span>&middot; Remote</span></div>
+        <ul class="tl-list">
+          <li>Built scalable semantic layers and metric models for consistent reporting across dashboards and teams</li>
+          <li>Designed reporting data marts and star-schema data models supporting finance, sales, and customer analytics</li>
+          <li>Developed automated reporting pipelines that reduced manual effort and improved data freshness</li>
+          <li>Validated data quality through reconciliation checks, anomaly detection, and business-rule implementation</li>
         </ul>
       </div>
     </div>
